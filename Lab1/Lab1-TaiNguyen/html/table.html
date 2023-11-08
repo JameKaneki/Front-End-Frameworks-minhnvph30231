@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+  td {
+    border: 1px solid
+  };
+  tr {
+    padding: 8px;
+  }
+
+</style>
+<body>
+  <div class="container-md">
+    <div class="row"><h1>Table</h1></div>
+    <div class="row my-3">
+      <a class="btn btn-primary col-3 mx-2 text-white" href="/table">table</a>
+      <a class="btn btn-primary col-3 mx-2 text-white" href="/mix">mix</a>
+      <a class="btn btn-primary col-3 mx-2 text-white" href="/">Form</a>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+          Launch demo modal
+        </button>
+        <div class="modal-xl modal fade " id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog bg-light p-4 rounded-2">
+            <div class=" w-100">
+              <table class="table table-dark table-striped-columns">
+                <tr colspan="5">   <i class="fa-solid fa-bars"></i>   Bảng lương tháng 12</tr>
+                <tr>
+                  <td colspan="1" rowspan="2">Mã NV</td>
+                  <td colspan="1" rowspan="2">Họ và tên</td>
+                  <td colspan="3" rowspan="1"  valign="bottom">Thu nhập</td>
+                </tr>
+                  
+                <tr> 
+                  <td>Lương</td>
+                  <td>Thưởng</td> 
+                  <td>Phụ cấp</td> 
+                </tr>
+                  
+                <tr> 
+                  <td>A</td>
+                  <td>HND</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>1</td>
+                </tr>
+                
+                <tr> 
+                  <td>B</td>
+                  <td>LHR</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>2</td>
+                </tr>
+                
+                <tr> 
+                  <td>C</td>
+                  <td>SWL</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>3</td>
+                </tr>
+                
+                <tr> 
+                  <td>D</td>
+                  <td>BWP</td>
+                  <td>1</td>
+                  <td>1</td>
+                  <td>4</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-6">
+      </div>
+    </div>
+  </div>
+</body>
+
+<script>
+
+
+</script>
+</html>
