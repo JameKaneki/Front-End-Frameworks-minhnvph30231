@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="./lib/angularjs.js"></script>
+  <script src="./lib/angular-route.js"></script>
+  <title>Document</title>
+</head>
+<body >
+  <div ng-app="myapp">
+    <!-- <div ng-include="'test-include.html"></div> -->
+    <nav>
+      <ul class="flex justify-center border-b-4 mb-2">
+        <li><a href="#!/home" class="link p-2 mx-2 poiter hover:bg-gray-600">Home</a></li>
+        <li><a href="#!/albums" class="link p-2 mx-2 poiter hover:bg-gray-600">albums</a></li>
+        <li><a href="#!/comments" class="link p-2 mx-2 poiter hover:bg-gray-600">Comment</a></li>
+        <li><a href="#!/users" class="link p-2 mx-2 poiter hover:bg-gray-600">Users</a></li>
+      </ul>
+    </nav>
+    <div ng-view></div>
+    <h1>{{name}}</h1>
+    <div class="footer"></div>
+  </div>
+  <script src="./controllers/albumsController.js"></script>
+  <script src="./controllers/usersController.js"></script>
+  <script src="./controllers/commentsController.js"></script>
+  <script src="./lib/main.module.js" type="module"></script>
+</body>
+</html>

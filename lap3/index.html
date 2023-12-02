@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/angularjs.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+  <title>Document</title>
+</head>
+<body ng-app="myapp">
+  <div ng-controller="appController">
+    <div>
+      <h1>Bai 1</h1>
+      <div>
+        <h4>Họ và tên : {{student.name}}</h4>
+        <h4>Ngày Sinh: {{student.DOB}}</h4>
+        <h4>Gender : {{student.gender}}</h4>
+        <h4>Điểm trung bình : {{student.mark}}</h4>
+      </div>
+
+      <h2> Bai 2</h2>
+      <table>
+        <thead>
+          <th>Name</th>
+          <th>DOB</th>
+          <th>Gender</th>
+          <th>Mark</th>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{students[0].name}}</td>
+            <td>{{students[0].DOB}}</td>
+            <td>{{students[0].gender}}</td>
+            <td>{{students[0].mark}}</td>
+          </tr>
+          <tr>
+            <td>{{students[1].name}}</td>
+            <td>{{students[1].DOB}}</td>
+            <td>{{students[1].gender}}</td>
+            <td>{{students[1].mark}}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Bai 3</h2>
+      <div>
+        <form>
+          <div>
+            <label>Chieu dai</label>
+            <input type="number" ng-model="length" >
+          </div>
+          <div>
+            <label>Chieu rong</label>
+            <input type="number" ng-model="width" >
+          </div>
+          <div>
+            <label>Chu vi</label>
+            <div name="CV" id="CV" ng-bind="CV" >
+          </div>
+          <div>
+            <label>Dien tich</label>
+            <div name="DT" id="DT" ng-bind="DT" >
+          </div>
+          <button ng-click="myFnc()">Calculate</button>
+        </form>
+      </div>
+      <h1>Bai 5</h1>
+      <div>
+        <form>
+          <div>
+            <label>Name</label>
+            <input ng-model="stName">  
+          </div>
+          <div>
+            <label>Mark</label>
+            <input ng-model="stMark" type="number">
+          </div>
+          <div>
+            <h1>Status : </h1>
+            <div ng-bind="status">
+          </div>
+          <button ng-click="handlerStudent()">Check</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+  const app = angular.module("myapp", []);
+  app.controller("appController",($scope) => {
+    $scope.student = {
+      name : "Minh",
+      DOB: "16-08-1999",
+      phone: "0989995920",
+      gender: "male",
+      mark : 8.5
+    }
+    $scope.students = [
+    {
+      name : "Minh 2",
+      DOB: "16-08-1999",
+      phone: "0989995920",
+      gender: "male",
+      mark : 8.5
+    },
+    {
+      name : "Minh",
+      DOB: "16-08-1999",
+      phone: "0989995920",
+      gender: "male",
+      mark : 8.5
+    }
+  ]
+  $scope.myFnc = () => {
+      const { width, length } = $scope
+      $scope.CV = 2* (Number(width) + Number(length))
+      $scope.DT = Number(width) * Number(length)
+    }
+    $scope.handlerStudent = () => {
+    const { stName, stMark } = $scope
+    if (stMark < 5 ) {
+      $scope.status = `Học sinh ${stName} với điểm tb la ${stMark} => Trượt môn`
+    } else {
+      $scope.status = `Học sinh ${stName} với điểm tb la ${stMark} => Qua môn`
+    }
+  }
+    } )
+</script>
+</html>
