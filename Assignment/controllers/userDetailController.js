@@ -8,7 +8,7 @@ const initUserInfo = {
 window.userDetailController = function($scope,$http,$location){
   const apiLink = `http://localhost:3000/users`
   $scope.data = initUserInfo
-  
+
   const getPath = () => {
     const urlSpread = $location.url().split('/')
     const id = urlSpread[urlSpread.length - 1]
@@ -20,6 +20,7 @@ window.userDetailController = function($scope,$http,$location){
       })
     }
   }
-  $scope.title = 'User Detail'
+  $scope.title = 'User Detail abc'
   getPath()
+
 }
