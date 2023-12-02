@@ -1,3 +1,7 @@
-window.albumsController = function($scope,$http){
-  $scope.name = "products"
-} 
+const AlbumsControllerFnc = () => {
+  window.albumsController = function($scope,$http){
+    $scope.name = "products"
+  } 
+}
+
+export default AlbumsControllerFnc

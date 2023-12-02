@@ -1,10 +1,3 @@
-const initUserInfo = {
-  id: null,
-  name: '',
-  email: '',
-  address: {},
-  company: {}
-}
 
 window.usersController = function($scope,$http){
   $scope.title = "student"
