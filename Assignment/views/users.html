@@ -87,18 +87,17 @@
                 <div class="input-wrap">
                   <label>Name</label>
                   <input type="text" ng-model="userInfo.name" required/>
+                  <span>{{errors.name}}</span>
                 </div>
                 <div class="input-wrap">
                   <label>Email</label>
                   <input type="email" ng-model="userInfo.email" required/>
+                  <span>{{errors.email}}</span>
                 </div>
                 <div class="input-wrap">
                   <label>Phone</label>
                   <input type="text" ng-model="userInfo.phone" required/>
-                </div>
-                <div class="input-wrap">
-                  <label>Company</label>
-                  <input type="text" ng-model="userInfo.company.name" required/>
+                  <span>{{errors.phone}}</span>
                 </div>
               </form>
             </div>

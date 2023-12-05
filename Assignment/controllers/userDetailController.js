@@ -2,8 +2,7 @@ const initUserInfo = {
   id: null,
   name: '',
   email: '',
-  address: {},
-  company: {}
+  phone: '',
 }
 window.userDetailController = function($scope,$http,$location){
   const apiLink = `http://localhost:3000/users`

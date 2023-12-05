@@ -1,3 +1,17 @@
+const userValidate = (userInfo) => {
+  let isClean = true
+  const errors = {}
+  Object.keys(userInfo).forEach((field) => {
+    if (userInfo[`${field}`]?.trim() === '') {
+      errors[`${field}`] = `${field} should not required`
+      isClean = false
+    }
+  })
+  return {
+    isClean,
+    errors
+  }
+}
 
 window.usersController = function($scope,$http){
   $scope.title = "student"
@@ -12,6 +26,8 @@ window.usersController = function($scope,$http){
   })
   }
 
+  $scope.errors = {}
+
   $scope.PropStatus = 'hidden'
 
   $scope.onOpenProp = () => {
@@ -23,25 +39,30 @@ window.usersController = function($scope,$http){
   }
   // user info
   $scope.userInfo = initUserInfo
-
+ 
   $scope.onAddUser = () => {
     $scope.onOpenProp()
     $scope.userInfo = initUserInfo
-    console.log(initUserInfo)
   }
 
-  $scope.handleOnSubmit = (event) => {
+  $scope.handleOnSubmit = () => {
+    const { isClean, errors } = userValidate($scope.userInfo) 
+    if ( !isClean ) {
+      $scope.errors = errors
+    } else {
+      $http.post(apiLink,{
+        ...$scope.userInfo
+      })
+      .then(res => {
+        if(res.status = 200) {
+          alert('add successfully')
+          $scope.onCloseProp()
+          $scope.userInfo = {}
+          $scope.errors = {}
+        }
+      })
+    }
     // validate data first 
-    $http.post(apiLink,{
-      ...$scope.userInfo
-    })
-    .then(res => {
-      if(res.status = 200) {
-        alert('add successfully')
-        $scope.onCloseProp()
-        $scope.userInfo = {}
-      }
-    })
   }
 
   $scope.onEditingUserInfo = (data) => {
@@ -61,14 +82,20 @@ window.usersController = function($scope,$http){
   }
 
   $scope.handleEditUserAction = (id) => {
-    $http.patch(`${apiLink}/${id}`, $scope.userInfo)
-    .then(res => {
-      if (res.status === 200) {
-        alert('edit successfully')
-      } else {
-        alert(`Bad request check your data`)
-      }
-    })
+    const { isClean, errors } = userValidate($scope.userInfo)
+    if ( !isClean ) {
+      $scope.errors = errors
+    } else {
+      $http.patch(`${apiLink}/${id}`, $scope.userInfo)
+      .then(res => {
+        if (res.status === 200) {
+          alert('edit successfully')
+          $scope.errors = {}
+        } else {
+          alert(`Bad request check your data`)
+        }
+      })
+    }
   }
   getData()
 }
